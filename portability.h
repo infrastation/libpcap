@@ -34,6 +34,11 @@
 #ifndef portability_h
 #define	portability_h
 
+// This file requires config.h, but must not include it.
+#ifndef LIBPCAP_CONFIG_H
+#error "libpcap config.h has not been included before this header"
+#endif
+
 /*
  * Helpers for portability between Windows and UN*X and between different
  * flavors of UN*X.

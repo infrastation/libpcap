@@ -33,6 +33,11 @@
 #ifndef __SSLUTILS_H__
 #define __SSLUTILS_H__
 
+// This file requires config.h, but must not include it.
+#ifndef LIBPCAP_CONFIG_H
+#error "libpcap config.h has not been included before this header"
+#endif
+
 #ifdef HAVE_OPENSSL
 #include "pcap/socket.h"  // for PCAP_SOCKET
 // If this is OpenSSL 1.0, at least one header may trigger a -Wdocumentation

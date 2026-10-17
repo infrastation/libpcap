@@ -24,6 +24,11 @@
 #ifndef pcap_util_h
 #define pcap_util_h
 
+// This file requires config.h, but must not include it.
+#ifndef LIBPCAP_CONFIG_H
+#error "libpcap config.h has not been included before this header"
+#endif
+
 #include <pcap/pcap-inttypes.h>
 /*
  * We use the "receiver-makes-right" approach to byte order;

@@ -34,6 +34,26 @@
 #ifndef pcap_int_h
 #define	pcap_int_h
 
+/*
+ * This file requires config.h, but must not include it.
+ *
+ * Note to libpcap package maintainers: pcap-int.h is an *internal* header of
+ * libpcap, which is why "make install" does not copy it from the source tree
+ * to the destination directory, and which is why it is wrong to copy the
+ * header manually and to package it.  Software that includes pcap-int.h needs
+ * to be fixed to use the public libpcap API instead [1].
+ *
+ * config.h is a purely internal header too, and pcap-int.h requires it to work
+ * correctly.  The guard below does not cause this dependency, only makes it
+ * more visible.  Please do not override any safety guards, or things risk
+ * breaking randomly.
+ *
+ * 1: https://www.tcpdump.org/faq.html#q14
+ */
+#ifndef LIBPCAP_CONFIG_H
+#error "libpcap config.h has not been included before this header"
+#endif
+
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdint.h>

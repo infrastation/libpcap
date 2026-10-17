@@ -1,6 +1,11 @@
 #ifndef dlpisubs_h
 #define	dlpisubs_h
 
+// This file requires config.h, but must not include it.
+#ifndef LIBPCAP_CONFIG_H
+#error "libpcap config.h has not been included before this header"
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
